@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "@prisma/client": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "prisma": "latest"
+  },
+  "main": "src/index.ts",
+  "prisma": {
+    "seed": "bun prisma/seed.ts"
+  },
+  "private": true,
+  "scripts": {
+    "debug": "bun src/index.ts",
+    "dev": "bun src/index.ts --watch",
+    "generate": "prisma generate --sql",
+    "migrate": "prisma migrate dev",
+    "migrate-init": "prisma migrate dev --name init",
+    "start": "bun src/index.ts",
+    "test": "bun src/index.ts"
+  }
+}
