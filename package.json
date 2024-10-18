@@ -5,7 +5,6 @@
   "devDependencies": {
     "prisma": "latest"
   },
-  "main": "src/index.ts",
   "prisma": {
     "seed": "bun prisma/seed.ts"
   },
