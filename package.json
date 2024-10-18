@@ -12,7 +12,7 @@
   "private": true,
   "scripts": {
     "dev": "bun src/index.ts --watch",
-    "generate": "prisma generate --sql --watch",
+    "generate": "prisma generate --sql",
     "migrate": "prisma migrate dev",
     "migrate-init": "prisma migrate dev --name init"
   }
