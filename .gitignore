@@ -10,3 +10,8 @@ src/generated/
 *.db*
 
 bun.lockb
+
+/.cache
+/build
+/public/build
+.env
