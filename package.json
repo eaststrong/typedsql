@@ -16,8 +16,6 @@
     "dev": "bun src/index.ts --watch",
     "generate": "prisma generate --sql",
     "migrate": "prisma migrate dev",
-    "migrate-init": "prisma migrate dev --name init",
-    "start": "bun src/index.ts",
-    "test": "bun src/index.ts"
+    "migrate-init": "prisma migrate dev --name init"
   }
 }
