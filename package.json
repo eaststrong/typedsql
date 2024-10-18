@@ -3,7 +3,6 @@
     "@prisma/client": "latest"
   },
   "devDependencies": {
-    "@types/node": "latest",
     "prisma": "latest"
   },
   "main": "src/index.ts",
@@ -12,9 +11,8 @@
   },
   "private": true,
   "scripts": {
-    "debug": "bun src/index.ts",
     "dev": "bun src/index.ts --watch",
-    "generate": "prisma generate --sql",
+    "generate": "prisma generate --sql --watch",
     "migrate": "prisma migrate dev",
     "migrate-init": "prisma migrate dev --name init"
   }

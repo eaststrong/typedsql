@@ -4,52 +4,20 @@ This example shows how to use the TypedSQL feature of [Prisma ORM](https://www.p
 
 ## Getting started
 
-### 1. Download example and install dependencies
-
-Download this example:
-
-```
-npx try-prisma@latest --template typescript/typedsql
-```
-
-Install npm dependencies:
-
-```
-cd typedsql
-npm install
-```
-
-<details><summary><strong>Alternative:</strong> Clone the entire repo</summary>
-
-Clone this repository:
-
-```
-git clone git@github.com:prisma/prisma-examples.git --depth=1
-```
-
-Install npm dependencies:
-
-```
-cd prisma-examples/typescript/typedsql
-npm install
-```
-
-</details>
-
 ### 2. Create and seed the database
 
 Run the following command to create your SQLite database file. This also creates the `User` and `Post` tables that are defined in [`prisma/schema.prisma`](./prisma/schema.prisma):
 
 ```
-npx prisma migrate dev --name init
+bun run migrate-init
 ```
 
-When `npx prisma migrate dev` is executed against a newly created database, seeding is also triggered. The seed file in [`prisma/seed.ts`](./prisma/seed.ts) will be executed and your database will be populated with the sample data.
+When `bun run migrate` is executed against a newly created database, seeding is also triggered. The seed file in [`prisma/seed.ts`](./prisma/seed.ts) will be executed and your database will be populated with the sample data.
 
 ### 3. Generate Prisma Client with SQL
 
 ```
-npx prisma generate --sql
+bun run generate
 ```
 
 This command runs `prisma generate --sql`, which will generate the Prisma Client and also check any SQL files in the `prisma/sql` directory. After type-checking the SQL files, they are compiled into JavaScript and added to the Prisma Client.
@@ -60,7 +28,7 @@ This command runs `prisma generate --sql`, which will generate the Prisma Client
 ### 4. Run the example
 
 ```
-npm run dev
+bun run dev
 ```
 
 This command will run [`index.ts`](./index.ts), which will execute the SQL query defined in [`prisma/sql/conversionByVariant.sql`](./prisma/sql/conversionByVariant.sql) and print the results to the console.
