@@ -17,6 +17,7 @@ enum EventType {
 }
 
 const prisma = new PrismaClient()
+
 async function main() {
     const usersInput: Prisma.UserCreateInput[] = []
 
@@ -44,23 +45,6 @@ async function createFunnel(users: User[], variant: ExperimentVariant) {
     }
 }
 
-function pickRandomSubset(users: User[]): User[] {
-    let amount = 1 + Math.floor(Math.random() * (users.length - 1))
-    const result: User[] = []
-
-    while (amount > 0) {
-        const idx = Math.floor(Math.random() * users.length)
-        const user = users[idx]
-
-        if (! result.includes(user)) {
-            result.push(user)
-            amount--;
-        }
-    }
-
-    return result
-}
-
 async function createEvents(users: User[], variant: ExperimentVariant, event: EventType) {
     const eventsData = users.map((user) => (
             {
@@ -70,7 +54,23 @@ async function createEvents(users: User[], variant: ExperimentVariant, event: Ev
             } satisfies Prisma.TrackingEventCreateManyInput
         ),
     )
+
     await prisma.trackingEvent.createMany({ data: eventsData })
+}
+
+function pickRandomSubset(users: User[]): User[] {
+    let amount = 1 + Math.floor(Math.random() * (users.length - 1))
+    const result: User[] = []
+
+    while (0 < amount) {
+        const idx = Math.floor(Math.random() * users.length)
+        const user = users[idx]
+        if (result.includes(user)) continue;
+        result.push(user)
+        amount--;
+    }
+
+    return result
 }
 
 main()
